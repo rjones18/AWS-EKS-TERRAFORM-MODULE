@@ -36,11 +36,11 @@ resource "aws_iam_role" "cluster" {
 
 resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSClusterPolicy" {
   role       = aws_iam_role.cluster.name
-  policy_arn  = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonEKSClusterPolicy"
+  policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
 resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSServicePolicy" {
-  role      = aws_iam_role.cluster.name
+  role       = aws_iam_role.cluster.name
   policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonEKSServicePolicy"
 }
 
@@ -61,23 +61,23 @@ resource "aws_iam_role" "nodes" {
 }
 
 resource "aws_iam_role_policy_attachment" "nodes_AmazonEKSWorkerNodePolicy" {
-  role      = aws_iam_role.nodes.name
+  role       = aws_iam_role.nodes.name
   policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonEKSWorkerNodePolicy"
 }
 
 resource "aws_iam_role_policy_attachment" "nodes_AmazonEKS_CNI_Policy" {
-  role      = aws_iam_role.nodes.name
+  role       = aws_iam_role.nodes.name
   policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
 resource "aws_iam_role_policy_attachment" "nodes_AmazonEC2ContainerRegistryReadOnly" {
-  role      = aws_iam_role.nodes.name
+  role       = aws_iam_role.nodes.name
   policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
 
 # Optional: SSM access is very common for ops (avoid SSH)
 resource "aws_iam_role_policy_attachment" "nodes_AmazonSSMManagedInstanceCore" {
-  role      = aws_iam_role.nodes.name
+  role       = aws_iam_role.nodes.name
   policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 

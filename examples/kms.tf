@@ -52,7 +52,7 @@ data "aws_iam_policy_document" "eks_kms_policy" {
   statement {
     sid = "AllowEKSAndCloudWatchUsage"
     principals {
-      type        = "Service"
+      type = "Service"
       identifiers = [
         "eks.amazonaws.com",
         "logs.amazonaws.com"

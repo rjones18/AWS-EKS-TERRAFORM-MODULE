@@ -1,5 +1,4 @@
 data "aws_partition" "current" {}
-data "aws_region" "current" {}
 
 locals {
   base_tags = merge(var.tags, {

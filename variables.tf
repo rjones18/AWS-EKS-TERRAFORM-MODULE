@@ -9,12 +9,6 @@ variable "tags" {
   default     = {}
 }
 
-variable "region" {
-  type        = string
-  description = "AWS region (used only for validations/docs; provider sets actual region)"
-  default     = null
-}
-
 variable "vpc_id" {
   type        = string
   description = "VPC ID where EKS will be deployed"

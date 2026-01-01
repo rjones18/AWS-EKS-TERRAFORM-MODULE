@@ -59,3 +59,8 @@ resource "aws_eks_access_policy_association" "breakglass_admin" {
     type = "cluster"
   }
 }
+
+resource "aws_iam_role_policy_attachment" "ec2_ssm" {
+  role       = aws_iam_role.kubectl_host.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}

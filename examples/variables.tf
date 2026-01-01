@@ -34,3 +34,28 @@ variable "owner" {
   description = "Team or owner responsible for this EKS cluster"
   default     = "platform"
 }
+
+#### Variables for EKS EC2 Bastion ####
+
+variable "cluster_name" {
+  type        = string
+  description = "EKS cluster name"
+  default     = "malik-eks"
+}
+
+variable "subnet_id" {
+  type        = string
+  description = "Subnet ID for the kubectl host (private subnet recommended)"
+  default     = "subnet-0fe92f91659185f4d"
+}
+
+variable "allowed_ssh_cidrs" {
+  type        = list(string)
+  description = "CIDRs allowed to SSH (only used if you open 22; SSM recommended)"
+  default     = []
+}
+
+variable "tags" {
+  type    = map(string)
+  default = {}
+}
